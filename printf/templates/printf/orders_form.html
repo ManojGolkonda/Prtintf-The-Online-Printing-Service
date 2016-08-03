@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  {% load staticfiles %}
+{#     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">#}
+{##}
+{#  <!-- Compiled and minified JavaScript -->#}
+{#  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>#}
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>New Order</title>
+    <style>
+        body
+        {
+{#            background-image: url("{% static 'images/order_now.jpg' %}");#}
+            background-size: contain;
+            background-size: cover;
+            background-color: skyblue;
+        }
+        div.transbox form{
+             margin: 5%;
+             max-width: 390px;
+             padding: 15px;
+             font-weight: bold;
+             color: #000000;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .blank_row {
+            height: 10px !important; /* Overwrite any previous rules */
+        }
+        div.transbox {
+                margin: 30px;
+                background-color: #ffffff;
+{#                border: 1px solid black;#}
+                opacity: 0.75;
+                filter: alpha(opacity=75); /* For IE8 and earlier */
+            }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="transbox">
+    <form method="post" action="" enctype="multipart/form-data" >
+        <h2 class="form-signin-heading"><font size="6pt" align="center" color="navy">Fill the Details to Complete the order</font></h2>
+        {% csrf_token %}
+        {% for field in form %}<h4>
+            {% if field.errors %}
+                <div class="control-group error">
+                    <label class="control-label"><font color="black" size="5pt">{{ field.label }}</font></label>
+                    <div class="controls">{{ field }}
+                        <span class="help-inline">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>
+                    </div>
+                </div>
+            {% else %}
+                <div class="control-group">
+                    <label class="control-label"><font color="black" size="5pt">{{ field.label }}</font></label>
+                    <div class="controls">{{ field }}
+                        {% if field.help_text %}
+                            <p class="help-inline">{{ field.help_text }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}<br></h4>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary" >Order now</button>
+        <br>
+    </form>
+    </div>
+</div>
+</body>
+</html>

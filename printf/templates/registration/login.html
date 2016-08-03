@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body
+        {
+{#            background-image: url("{% static 'images/back_pride.jpg' %}");#}
+            background-size: contain;
+            background-size: cover;
+            background-color: skyblue;
+        }
+        div.transbox form{
+             margin: 5%;
+             max-width: 390px;
+             padding: 15px;
+             font-weight: bold;
+             color: #000000;
+        }
+
+        @media (min-width: 768px)
+        {
+            .container {
+                width: 750px;
+            }
+        }
+        .container {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .blank_row {
+            height: 10px !important; /* Overwrite any previous rules */
+        }
+        div.transbox {
+                margin: 15px;
+                background-color: #ffffff;
+                border: 1px solid white;
+                opacity: 0.90;
+                filter: alpha(opacity=90); /* For IE8 and earlier */
+            }
+        .sign-up-here {
+            color: white;
+            background-color: #080808;
+            font-size: x-large;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="transbox" style="margin-left: 230px">
+
+    <form class="form-signin" method="post" action="">
+        <h4 class="form-signin-heading" align="center">Log in</h4>
+        <br>
+        {% csrf_token %}
+        <table>
+                <tbody><tr>
+                    <td><label for="id_username"><font color="black" size="4pt">User name:</font></label></td>
+                    <td>{{ form.username }}</td>
+                </tr>
+{#                <tr class="blank_row">#}
+{#                    <td colspan="4"></td>#}
+{#                </tr>#}
+                <tr>
+                    <td><label for="id_password"><font color="black" size="4pt">Password:</font></label></td>
+                    <td>{{ form.password }}</td>
+                </tr>
+{#                <tr class="blank_row">#}
+{#                    <td colspan="4"></td>#}
+{#                </tr>#}
+        </tbody></table>
+        <button  class="btn btn-lg btn-block" type="submit" style="background-color: black; color: white">Sign in</button>
+        <br>
+    </form>
+    </div>
+        <div align="center" class="container" style="color: green">
+            <h4>OR</h4>
+        </div>
+        <div>
+            <br/>
+            <div  style="margin-left: 42.5%">
+                <a href="/adduser/customer"><span class="sign-up-here"> SignUp here </span></a>
+            </div>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home-Printf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+</head>
+<body style="background-color: skyblue">
+
+<nav class="navbar navbar-inverse" style="background-color: darkblue ;border-top-width: 0px;border-right-width: 0px;border-left-width: 0px;border-bottom-width: 0px;
+    margin-bottom: 0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+          <span class="glyphicon glyphicon-log-in"></span>
+      </button>
+      <a class="navbar-brand navbar-right" href="/homepage/"><span class="glyphicon glyphicon-print"></span> Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+{#        <li><a href="/adduser/customer"><span class="glyphicon glyphicon-user"></span>New Customer</a></li>#}
+{#        <li><a href="/adduser/merchant"><span class="glyphicon glyphicon-user"></span>New Merchant</a></li>#}
+        <li><a href="/customerlogin/"><span class="glyphicon glyphicon-knight"></span> Customer</a></li>
+        <li><a href="/merchantlogin/"><span class="glyphicon glyphicon-king"></span> Merchant</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" style="width:100%;padding-left: 0px;padding-right: 0px;">
+    <div class="" style="margin-bottom: 0px">
+        <center><h1 ><img  src="{% static 'images/printer-icon.png' %}" class="img-thumbnail" alt="Cinque Terre" style="width: 10%;height: 10%">Printf()-OPS</h1></center>
+        <h3 align="center">Tho Online Priting Service</h3>
+        <p align="center">All-In-One Priting solution..</p>
+    </div>
+{#    <img class="img-responsive" src="{% static 'images/navbar-background.jpg' %}" alt="Chania" style="width: 100%">#}
+</div>
+<div align="center" style="margin-left: 25%;margin-right: 25%">
+    <h2 style="">About</h2>
+    <p>
+        It is a All-in-One printing solution which connects the Custoners with merchants.Customers request for the Service and the Merchants provides the service.
+    </p>
+</div>
+<div align="center" style="margin-left: 25%;margin-right: 25%">
+    <h2 style="">Contact Us</h2>
+    <p><marquee>e-mail:help@printf.co.in</marquee></p>
+</div>
+
+
+{#<div class="container-fluid" style="width:100%;padding-left: 0px;padding-right: 0px;">#}
+{#<div class="" style="margin-bottom: 0px">#}
+{#    <center><h1 ><img  src="{% static 'images/printer-icon.png' %}" class="img-thumbnail" alt="Cinque Terre" style="width: 10%;height: 10%">printf()</h1></center>#}
+{#  <p align="center">Let us help you with all of your printing needs.</p>#}
+{#</div>#}
+{#<img class="img-responsive" src="{% static 'images/Printing-Services.gif' %}" alt="Chania" style="width: 100%">#}
+{#</div>#}
+<!--
+<a href="/adduser/customer">customer sign up</a>
+<a href="/adduser/merchant">merchant signup</a>
+<form action="/customerlogin/">
+    <input type="submit" value="cust login">
+</form>
+<br>
+<form action="/merchantlogin/">
+    <input type="submit" value="merchant login">
+</form>
+-->
+</body>
+</html>

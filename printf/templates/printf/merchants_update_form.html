@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <title>Update profile</title>
+    <style>
+        body
+        {
+{#            background-image: url("{% static 'images/update_profile.jpg' %}");#}
+            background-size: contain;
+            background-size: cover;
+        }
+        div.transbox form{
+             margin: 5%;
+             max-width: 390px;
+             padding: 15px;
+             font-weight: bold;
+             color: #000000;
+        }
+
+        @media (min-width: 768px)
+        {
+            .container {
+                width: 750px;
+            }
+        }
+        .container {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .blank_row {
+            height: 10px !important; /* Overwrite any previous rules */
+        }
+        div.transbox {
+                margin: 15px;
+                background-color: #ffffff;
+{#                border: 1px solid black;#}
+                opacity: 0.6;
+                filter: alpha(opacity=60); /* For IE8 and earlier */
+            }
+    </style>
+
+</head>
+<body style="background-color: skyblue">
+
+<div class="container">
+    <div class="transbox">
+    <form class="form-signin" method="post" action="">
+        <h4 class="form-signin-heading">Update Profile</h4>
+        <br>
+        {% csrf_token %}
+        <table>
+                <tbody><tr>
+                    <td><label for="id_name"><font color="black" size="4pt">Name:</font></label></td>
+                    <td>{{ form.name }}</td>
+                </tr>
+{#                <tr class="blank_row">#}
+{#                    <td colspan="4"></td>#}
+{#                </tr>#}
+                <tr>
+                    <td><label for="id_location"><font color="black" size="4pt">Location:</font></label></td>
+                    <td>{{ form.location }}</td>
+                </tr>
+{#                <tr class="blank_row">#}
+{#                    <td colspan="4"></td>#}
+{#                </tr>#}
+                <tr>
+                    <td><label for="id_cost"><font color="black" size="4pt">Cost per unit:</font></label></td>
+                    <td>{{ form.cost }}</td>
+                </tr>
+{#                <tr class="blank_row">#}
+{#                    <td colspan="4"></td>#}
+{#                </tr>#}
+                </tbody></table>
+        <button  class="btn btn-lg btn-block" type="submit" style="background-color: black; color: white">Update</button>
+        <br>
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

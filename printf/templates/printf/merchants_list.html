@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merchants List</title>
+</head>
+<body>
+
+        <h3> List of All Merchants</h3>
+        <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cost</th>
+        </tr>
+        <tr>
+            {% for merchant in allmerchants%}
+            <tr >
+                <td>{{ merchant.name }}</td>
+                <td>{{ merchant.location }}</td>
+                <td>{{ merchant.cost }} </td>
+            </tr>
+            {% endfor %}
+
+        </tr>
+        </table>
+
+</body>
+</html>

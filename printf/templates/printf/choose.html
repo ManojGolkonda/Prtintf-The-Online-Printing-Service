@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose</title>
+</head>
+<body>
+    <form action="/addcustomer/{{ num }}">
+        {% csrf_token %}
+        <input type="submit" value="new customer ">
+    </form>
+    <form action="/addmerchant/{{ num }}">
+        {% csrf_token %}
+        <input type="submit" value="new merchant ">
+    </form>
+</body>
+</html>

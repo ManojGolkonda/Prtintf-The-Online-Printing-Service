@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Customers Orders</title>
+    <style>
+        tr:nth-child(even)
+        {
+            background-color: #B0C4DE;
+        }
+        tr:hover {background-color: #46b8da;}
+        th
+        {
+            background-color: #4682B4;
+            color: white;
+        }
+        caption
+        {
+            caption-side: top;
+        }
+    </style>
+</head>
+<body style="background-color: skyblue">
+<nav class="navbar navbar-inverse" style="background-color: darkblue ">
+  <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+          <span class="glyphicon glyphicon-log-in"></span>
+      </button>
+      <a class="navbar-brand navbar-right" href="/homepage/"><span class="glyphicon glyphicon-print"></span> Home</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/printf/createOrder/"><span class="glyphicon glyphicon-plus-sign"></span> New order</a></li>
+      <li><a href="/logout/"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+        <table class="table table-striped table-bordered table-hover">
+        <h3>Your Orders</h3>
+        <tr>
+            <th>Quantity</th>
+            <th>Date of Order</th>
+            <th>Due for Delivery</th>
+            <th>Merchant name</th>
+            <th>Cost per qty</th>
+            <th>File name</th>
+            <th>Delivered</th>
+        </tr>
+            {% for order in myorders%}
+            <tr>
+                <td>{{ order.qty }}</td>
+                <td>{{ order.date_of_order }}</td>
+                <td>{{ order.date_of_delivery }} </td>
+                <td>{{ order.merchant.name }}</td>
+                <td>{{ order.merchant.cost }}</td>
+                <td><a href="{{ order.docfile.url }}">{{ order.docfile.name }}</a></td>
+                {% if order.completed %}
+                    <td>Yes</td>
+                {% else %}
+                    <td>Not Yet</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+</body>
+</html>
